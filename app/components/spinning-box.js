@@ -5,10 +5,22 @@ const {
   computed
 } = Ember;
 
-export default Ember.Component.extend({
+import EmberABox from 'ember-cli-aframe/components/ember-a-box';
+
+export default EmberABox.extend({
+  color: "#6173F4",
+  width: "4",
+  height: "10",
+  depth: "2",
+  position: "-10 3 -5",
+  scale: "2 0.5 3",
+
   clock: service('clock'),
 
-  tagName: '',
+  click: function() {
+    this.set('color', 'red');
+    console.log('I was clicked!');
+  },
 
   time: computed('clock.time', function() {
     return this.get('clock.time');
