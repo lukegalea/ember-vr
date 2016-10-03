@@ -5,7 +5,7 @@ export function initialize(/* application */) {
 
   EmberAEntity.reopen({
     click: function() {
-      this.get('onClick')();      
+      this.get('onClick')(this);
     }
   });
 }
